@@ -16,6 +16,10 @@ Or install it yourself as:
 
     $ gem install sidekiq-monitor
 
+After you install Sidekiq monitor and add it to your Gemfile, you need to run the generator:
+
+    $ rails g sidekiq:monitor:migration
+
 ### Usage
 
 TODO: Write usage instructions here
