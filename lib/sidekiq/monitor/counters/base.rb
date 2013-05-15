@@ -44,13 +44,12 @@ module Sidekiq
         end
 
         def self.update_needed?
-          updated_at.advance(seconds: 10).past?
+          updated_at.nil? || updated_at.advance(seconds: 10).past?
         end
 
         def self.updated_at
           Sidekiq.redis { |conn| Time.parse conn.get("#{namespace}:updated_at") }
         rescue
-          Time.new 2001
         end
 
         def key
