@@ -35,7 +35,7 @@ h3
           td
             == link_to_tree event.revision
 
-  == will_paginate @events, renderer: Sidekiq::Monitor::Web::PaginateRenderer
+  == will_paginate @events, renderer: Sidekiq::Monitor::Web::PaginateRenderer, inner_window: 2
   br
 
 - else
