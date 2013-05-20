@@ -29,7 +29,7 @@ module Sidekiq
 
         def self.names
           Sidekiq.redis do |conn|
-            conn.smembers(namespace)
+            conn.smembers(namespace).sort
           end
         end
 
