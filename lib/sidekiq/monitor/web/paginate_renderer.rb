@@ -13,6 +13,10 @@ module Sidekiq
           tag :li, link(page, page, :rel => rel_value(page)), :class => ('active' if page == current_page)
         end
 
+        def gap
+          tag :li, tag(:span, '&hellip;'), :class => 'gap'
+        end
+
         def previous_page
           num = @collection.current_page > 1 && @collection.current_page - 1
           previous_or_next_page num, '«', 'previous_page'
