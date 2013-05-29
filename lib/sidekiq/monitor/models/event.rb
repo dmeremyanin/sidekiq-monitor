@@ -12,13 +12,15 @@ module Sidekiq
       before_save :assign_revision
 
       def self.create_or_update_with(worker, message, queue)
-        find_or_initialize_by_jid(message['jid']).tap do |e|
-          e.started_at   = Time.now
-          e.retry_count  = message['retry_count'].to_i + 1 if message.has_key?('retry_count')
-          e.worker_class = worker.class.name
-          e.args  = message['args']
-          e.queue = queue
-          e.save
+        transaction do
+          find_or_initialize_by_jid(message['jid']).tap do |e|
+            e.started_at   = Time.now
+            e.retry_count  = message['retry_count'].to_i + 1 if message.has_key?('retry_count')
+            e.worker_class = worker.class.name
+            e.args  = message['args']
+            e.queue = queue
+            e.save
+          end
         end
       end
 
