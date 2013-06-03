@@ -7,16 +7,19 @@ h3
 - if @events.size > 0
   table class="table table-striped table-bordered table-white" style="width: 100%; margin: 0; table-layout:fixed;"
     thead
-      th style="width: 20%" Worker
-      th style="width: 20%" Args
+      th style="width: 25%" Worker, args
       th style="width: 50%" Runtime or Exception
+      th style="width: 15%" Started at
       th style="width: 10%" Revision
     tbody
       - @events.each do |event|
         tr
           td style="overflow: hidden; text-overflow: ellipsis;"
             = event.worker_class
-          td= event.args.inspect[0..100]
+
+            div style="color: #999; font-size: 0.9em;"
+              = display_args event.args
+
           td style="overflow: auto;"
             - if event.finished?
               = time_with_sec event.runtime
@@ -32,6 +35,8 @@ h3
 
             - else
               span style="color: #AAA;" performing ...
+          td
+            == relative_time(event.started_at)
           td
             == link_to_tree event.revision
 
