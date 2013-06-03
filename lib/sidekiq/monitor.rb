@@ -9,7 +9,7 @@ require 'sidekiq/monitor/counters/base'
 require 'sidekiq/monitor/counters/queue'
 require 'sidekiq/monitor/counters/worker'
 require 'sidekiq/monitor/middleware'
-require 'sidekiq/monitor/railtie' if defined?(Rails)
+require 'sidekiq/monitor/railtie'
 require 'sidekiq/monitor/web/paginate_renderer'
 require 'sidekiq/monitor/web'
 
