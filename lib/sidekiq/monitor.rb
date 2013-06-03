@@ -9,6 +9,7 @@ require 'sidekiq/monitor/counters/base'
 require 'sidekiq/monitor/counters/queue'
 require 'sidekiq/monitor/counters/worker'
 require 'sidekiq/monitor/middleware'
+require 'sidekiq/monitor/railtie' if defined?(Rails)
 require 'sidekiq/monitor/web/paginate_renderer'
 require 'sidekiq/monitor/web'
 
@@ -18,7 +19,7 @@ module Sidekiq
 
     include ActiveSupport::Configurable
 
-    config_accessor :github_repo
+    config_accessor :events_ttl, :github_repo
 
     def current_revision
       @current_revision ||= begin

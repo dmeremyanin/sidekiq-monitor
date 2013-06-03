@@ -7,7 +7,8 @@ module Sidekiq
       serialize :exception, Hash
       serialize :args,      Array
 
-      scope :recent,  -> { order(:id).reverse_order }
+      scope :recent,     lambda { order(:id).reverse_order }
+      scope :older_than, lambda { |time| where(arel_table[:created_at].lt(time)) }
 
       before_save :assign_revision
 
