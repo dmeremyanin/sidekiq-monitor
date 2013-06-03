@@ -1,6 +1,6 @@
 ## Sidekiq::Monitor
 
-TODO: Write a gem description
+Jobs and queue stats for your Sidekiq.
 
 ### Installation
 
@@ -20,9 +20,9 @@ After you install Sidekiq monitor and add it to your Gemfile, you need to run th
 
     $ rails g sidekiq:monitor:migration
 
-### Usage
+### TODO
 
-TODO: Write usage instructions here
+1. Test it.
 
 ### Contributing
 

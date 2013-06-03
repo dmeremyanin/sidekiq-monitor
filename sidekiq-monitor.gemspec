@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Sidekiq::Monitor::VERSION
   spec.authors       = ['Dimko']
   spec.email         = ['deemox@gmail.com']
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ''
+  spec.description   = %q{Tracks jobs enqueued, average duration and etc.}
+  spec.summary       = %q{Jobs and queue stats for Sidekiq}
+  spec.homepage      = 'https://github.com/dimko/sidekiq-monitor'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
