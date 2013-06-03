@@ -12,7 +12,5 @@ class CreateSidekiqMonitorEvents < ActiveRecord::Migration
       t.float    :runtime
       t.timestamps
     end
-
-    add_index :sidekiq_monitor_events, :jid, unique: true
   end
 end
